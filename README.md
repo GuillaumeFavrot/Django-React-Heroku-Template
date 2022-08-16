@@ -76,6 +76,11 @@ In this template Django is configured to serve the React app on its root address
     $ python3 manage.py collectstatic
     This will generate a staticfiles folder a the root of the app. At this point the Django server will serve the React app on its root address.
 
+# Heroku steps
+
+=> Login to heroku and follow  the steps indicated on heroku => 404 bug
+=> Adding a proxy in package.json
+
 # STANDARD REACT README
 
 # Getting Started with Create React App
