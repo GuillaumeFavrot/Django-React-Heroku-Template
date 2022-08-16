@@ -90,7 +90,7 @@ A. Heroku preparation
 
 B. App preparation
 
-    This template has been created to avoid having to do many app reparation. The main thing to do is to add the heroku app address (obtainable on the app page on heroku) to the 'allowed hosts' list in the file settings.py. The address has to be added without the http://.
+    This template has been created to avoid having to do many app reparation. The main thing to do is to add the heroku app address (obtainable on the app page on heroku) to the 'allowed hosts' list in the file settings.py. The address has to be added without the http:// AND without the end /.
 
 C. Uploading the app
 
