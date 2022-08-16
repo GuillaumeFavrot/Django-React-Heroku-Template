@@ -1,4 +1,4 @@
-# Django-React-Heroku template user guide
+# Django-React-Heroku template first setup guide
 
 A - Environement setup
 
@@ -64,9 +64,7 @@ The React development environement has it's own webserver accessible via the adr
     localhost:3000
 In this template Django is configured to serve the React app on its root address however this require  a live build. While on a development build use the localhost address.
 
-    C
-
- TBD - Manual live build
+# Manual live build
 
  Generating a manual live build is quite straight forward :
     => The first step requires to naviguate with the console in the main directory and run the command :
@@ -74,16 +72,45 @@ In this template Django is configured to serve the React app on its root address
     This command will bundle all the react code into static files and store them into a "build" folder in the root  directory.
     => The second command generates static files used by the python side of the app. Make sure to be in a virtual environment AND in the root folder when you use this :
     $ python3 manage.py collectstatic
-    This will generate a staticfiles folder a the root of the app. At this point the Django server will serve the React app on its root address.
+    This will generate a staticfiles folder a the root of the app. At this point the Django server will serve the React app on its root address (/).
 
-# Heroku steps
+# Steps to deploy the app on Heroku
 
-=> Login to heroku and follow  the steps indicated on heroku => 404
-=> On heroku adding bundler python + node => 404
-=> Adding a proxy in package.json => 400
-=> Adding the heroku address to the list of allowed hosts => 
+A. Heroku preparation
 
-# STANDARD REACT README
+    The first step to deploy the app on heroku is to install the heroku CLI. This step is described on Heroku's website :
+        https://devcenter.heroku.com/articles/heroku-cli
+
+    A.1 Creating the Heroku repository and preping it
+
+        => Go on the Heroku dashboard (https://dashboard.heroku.com/apps) and create a new app
+        => Go in the app management page and go in the settings tab.
+        => In the config var tab add the content of the .env file.
+        => In the buildpacks section add the node.js buildpack !!THEN!! the python buildpack (node.js buildpack has to run before the python buildpack because the later need the react production build to run properly)
+
+B. App preparation
+
+    This template has been created to avoid having to do many app reparation. The main thing to do is to add the heroku app address (obtainable on the app page on heroku) to the 'allowed hosts' list in the file settings.py. The address has to be added without the http://.
+
+C. Uploading the app
+
+    Once Heroku and the app have been preped, time to deploy the app!
+
+    => In the app connsole run the following command to connect to heroku :
+        $ heroku login
+    => Then you have to link the online repository to your project (like a git repo). Do it with the command :
+        $ heroku git:remote -a name_of_the_app
+    => Then proceed like a git upload :
+        $ git add .
+        $ git commit -m "your_message"
+        $ git push heroku master
+
+    The uploading script will run and the app will be deployed!!
+
+
+
+
+# STANDARD REACT README //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # Getting Started with Create React App
 
