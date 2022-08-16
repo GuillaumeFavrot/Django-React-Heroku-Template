@@ -78,8 +78,10 @@ In this template Django is configured to serve the React app on its root address
 
 # Heroku steps
 
-=> Login to heroku and follow  the steps indicated on heroku => 404 bug
-=> Adding a proxy in package.json
+=> Login to heroku and follow  the steps indicated on heroku => 404
+=> On heroku adding bundler python + node => 404
+=> Adding a proxy in package.json => 400
+=> Adding the heroku address to the list of allowed hosts => 
 
 # STANDARD REACT README
 
