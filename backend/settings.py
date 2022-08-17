@@ -14,11 +14,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# For a hosting on heroku add the heroku application address below without the http:// and the ending /! 
+# For a hosting on heroku add the heroku application address below without the "http://"" and the ending "/"! 
 ALLOWED_HOSTS = ['127.0.0.1', 'django-react-heroku-test1.herokuapp.com']
 
 
 # Application definition
+# The first custom app in this list is 'api' which is the main api of the Django-React app and allows connections with the DB.
+# The second app is corsheaders which allows the Django app to be accessed from mutliple domains.
+# The last custom app is pymongo which allows Django to work with mongoDB.
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -31,7 +35,12 @@ INSTALLED_APPS = [
     'pymongo'
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+# This line configure corsheaders to allow all requests coming to the Django app from external sources. Can be replaced with a list of allowed domains to provide an extra layer of security
+# CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGINS = [
+        'https://django-react-heroku-test1.herokuapp.com/'
+    ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
