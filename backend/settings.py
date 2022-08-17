@@ -14,7 +14,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+# For a hosting on heroku add the heroku application address below without the http:// and the ending /! 
+ALLOWED_HOSTS = ['127.0.0.1', 'django-react-heroku-test1.herokuapp.com']
 
 
 # Application definition
