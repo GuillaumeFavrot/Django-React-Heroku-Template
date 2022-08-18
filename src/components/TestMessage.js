@@ -1,3 +1,5 @@
+// Test component only
+
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { CheckIcon, TrashIcon } from '@primer/octicons-react'

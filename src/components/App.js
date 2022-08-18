@@ -1,3 +1,6 @@
+// The App.js file is the main component of the app.
+// All other components are organized inside this App.js file.
+
 import React from 'react'
 import Test from './Test'
 import { useEffect } from 'react'

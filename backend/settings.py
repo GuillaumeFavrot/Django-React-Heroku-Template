@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 
 # For a hosting on heroku add the heroku application address below without the "http://"" and the ending "/"! 
-ALLOWED_HOSTS = ['127.0.0.1', 'django-react-heroku-test1.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -35,16 +35,23 @@ INSTALLED_APPS = [
     'pymongo'
 ]
 
-# This line configure corsheaders to allow all requests coming to the Django app from external sources. Can be replaced with a list of allowed domains to provide an extra layer of security
-# CORS_ORIGIN_ALLOW_ALL = True
+# Here is the list of all domains that are allowed to make a request to the Django app. 
+# The localhost address is the react development server address.
+# For a hosting on heroku add the heroku application address below 
+# DO NOT ADD AN ENDING '/'
 
 CORS_ALLOWED_ORIGINS = [
-        'https://django-react-heroku-test1.herokuapp.com/'
+        'http://localhost:3000',
     ]
 
+# It's also possible to allow requests coming to the Django app from ALL external sources by uncommenting the following line :
+# CORS_ORIGIN_ALLOW_ALL = True
+
 MIDDLEWARE = [
+    # The following line is part of the custom corsheaders setup
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # The following line is part of the custom whitenoise setup
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,9 +61,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# The following line is part of the custom whitenoise setup
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'backend.urls'
 
+# The following line provide Django with the path to the React template that will be served by the app while in production.
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -78,7 +87,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+# This section is blank because this template is using MongoDB instead of a standard sql DB.
 DATABASES = {
     'default': {
         'ENGINE': '',
@@ -121,6 +130,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+# This section provide the DJango app with the path to the static files that will be served in prodction.
 
 STATIC_URL = 'static/'
 

@@ -1,3 +1,8 @@
+// The index.js file is a key component of a React app. 
+// Its role is to :
+// 1) Insert the app (<App />) component into the 'root' div of the index.html file.
+// 2) Provide the app with the redux store so that any component of the app can easily access any information in the store without any prop drilling.
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/index.css';

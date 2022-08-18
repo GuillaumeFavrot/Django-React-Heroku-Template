@@ -1,3 +1,7 @@
+# This views file is responsible for making DB calls
+# In this template has only one function 'testAPI' but in a more complex app it will have one function per DB collection/api endpoint.
+# Each view function take a request as argument and, depending on the request method, applies some CRUD operations.
+
 from django.views.decorators.csrf import csrf_exempt
 from json import loads
 from api.utils import collection

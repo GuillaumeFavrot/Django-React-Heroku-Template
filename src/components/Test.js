@@ -1,7 +1,8 @@
+// Test component only
+
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getTestMessage } from './state/features/testSlice'
 import { addTestMessage } from './state/features/testSlice'
 import TestMessage from './TestMessage'
 
